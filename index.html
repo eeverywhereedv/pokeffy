@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PokEffy Launcher</title>
+<meta name="description" content="PokEffy Launcher — launcher privé pour le serveur Cobblemon PokEffy / private launcher for the PokEffy Cobblemon server.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 3 57 17.5v29L32 61 7 46.5v-29z' fill='%23ff7a59'/%3E%3C/svg%3E">
+<style>
+  :root { --bg:#0b0d16; --s:#141829; --line:rgba(255,255,255,.07); --t:#eceffc; --m:#9aa2c4; --a:#ff5c5c; --b:#ffb547; --l:#34e0c2; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:radial-gradient(1000px 500px at 85% -10%,rgba(143,125,255,.14),transparent),radial-gradient(800px 500px at 0% 110%,rgba(255,92,92,.10),transparent),var(--bg);
+         color:var(--t); font:16px/1.65 system-ui,-apple-system,"Segoe UI",Inter,sans-serif; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:860px; margin:0 auto; padding:28px 24px 64px; }
+  header { display:flex; align-items:center; gap:14px; }
+  .brand { font-weight:800; font-size:26px; letter-spacing:-.02em; }
+  .grad { background:linear-gradient(100deg,var(--a),var(--b)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .lang { margin-left:auto; display:flex; background:var(--s); border:1px solid var(--line); border-radius:12px; padding:3px; }
+  .lang button { background:none; border:0; color:var(--m); font:inherit; font-size:14px; padding:5px 12px; border-radius:9px; cursor:pointer; }
+  .lang button[aria-pressed=true] { background:#272d47; color:var(--t); }
+  .hero { margin:56px 0 40px; }
+  h1 { font-size:clamp(34px,6vw,52px); line-height:1.08; letter-spacing:-.03em; margin:0 0 16px; }
+  .lead { color:var(--m); font-size:18px; max-width:640px; margin:0; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
+  .card { background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.01)); border:1px solid var(--line); border-radius:18px; padding:22px; }
+  .card h3 { margin:0 0 8px; font-size:16px; }
+  .card p, li { color:var(--m); margin:0; font-size:15px; }
+  h2 { font-size:22px; margin:44px 0 14px; letter-spacing:-.01em; }
+  ul { margin:0; padding-left:20px; } li { margin:6px 0; }
+  .dot { display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--l); margin-right:8px; vertical-align:middle; }
+  footer { margin-top:56px; padding-top:20px; border-top:1px solid var(--line); color:var(--m); font-size:13px; }
+  a { color:var(--b); }
+  [data-lang] { display:none; } html[lang=fr] [data-lang=fr], html[lang=en] [data-lang=en] { display:revert; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <svg width="40" height="40" viewBox="0 0 64 64" aria-hidden="true">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff5c5c"/><stop offset="1" stop-color="#ffb547"/></linearGradient>
+      <linearGradient id="l" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#34e0c2"/><stop offset="1" stop-color="#8f7dff"/></linearGradient></defs>
+      <path d="M32 3 57 17.5v29L32 61 7 46.5v-29z" fill="url(#g)"/><path d="M32 9.5 51.5 21v22L32 54.5 12.5 43V21z" fill="#0b0d16"/>
+      <path d="M24 19h17v6H31v4.5h8v6h-8V39h10v6H24z" fill="url(#g)"/><circle cx="46" cy="19" r="4" fill="url(#l)"/>
+    </svg>
+    <span class="brand">Pok<span class="grad">Effy</span></span>
+    <div class="lang" role="group" aria-label="Langue / Language">
+      <button data-set="fr" aria-pressed="true">FR</button><button data-set="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1 data-lang="fr">Le launcher du serveur <span class="grad">PokEffy</span></h1>
+    <h1 data-lang="en">The launcher for the <span class="grad">PokEffy</span> server</h1>
+    <p class="lead" data-lang="fr">PokEffy Launcher est une application de bureau privée, non commerciale, destinée à un petit groupe d'amis qui jouent ensemble sur notre serveur Minecraft Java Edition Cobblemon. Il installe le modpack, le tient à jour et lance le jeu avec le compte Microsoft du joueur.</p>
+    <p class="lead" data-lang="en">PokEffy Launcher is a private, non-commercial desktop application for a small group of friends who play together on our Cobblemon Minecraft: Java Edition server. It installs the modpack, keeps it up to date and launches the game with the player's own Microsoft account.</p>
+  </section>
+
+  <div class="grid">
+    <div class="card"><h3 data-lang="fr">Connexion officielle</h3><h3 data-lang="en">Official sign-in</h3>
+      <p data-lang="fr">Connexion Microsoft dans le navigateur du joueur (OAuth 2.0 + PKCE). Le launcher ne voit jamais le mot de passe.</p>
+      <p data-lang="en">Microsoft sign-in in the player's own browser (OAuth 2.0 + PKCE). The launcher never sees the password.</p></div>
+    <div class="card"><h3 data-lang="fr">Propriété du jeu vérifiée</h3><h3 data-lang="en">Ownership verified</h3>
+      <p data-lang="fr">Une licence Minecraft: Java Edition est obligatoire. Aucun mode hors ligne, aucun contournement d'authentification.</p>
+      <p data-lang="en">A Minecraft: Java Edition licence is required. No offline mode, no authentication bypass.</p></div>
+    <div class="card"><h3 data-lang="fr">Modpack à jour</h3><h3 data-lang="en">Up-to-date modpack</h3>
+      <p data-lang="fr">Mises à jour signées et vérifiées : seuls les fichiers modifiés sont téléchargés, les données des joueurs sont préservées.</p>
+      <p data-lang="en">Signed, verified updates: only changed files download and players' data is preserved.</p></div>
+  </div>
+
+  <h2 data-lang="fr">Confidentialité et sécurité</h2><h2 data-lang="en">Privacy &amp; security</h2>
+  <div class="card">
+    <ul data-lang="fr">
+      <li>Les jetons d'authentification ne sont envoyés qu'aux services Microsoft, Xbox et Mojang, jamais à nos serveurs.</li>
+      <li>Seul le jeton de renouvellement Microsoft est conservé, dans le coffre d'identifiants du système d'exploitation.</li>
+      <li>Les fichiers du jeu proviennent uniquement des serveurs officiels de Mojang ; le modpack est vérifié par signature et SHA-256.</li>
+      <li>Aucune donnée personnelle n'est collectée ni partagée.</li>
+    </ul>
+    <ul data-lang="en">
+      <li>Authentication tokens are only sent to Microsoft, Xbox and Mojang services, never to our servers.</li>
+      <li>Only the Microsoft refresh token is stored, in the operating system's credential store.</li>
+      <li>Game files come only from Mojang's official servers; the modpack is verified by signature and SHA-256.</li>
+      <li>No personal data is collected or shared.</li>
+    </ul>
+  </div>
+
+  <h2 data-lang="fr">Le projet</h2><h2 data-lang="en">The project</h2>
+  <div class="card">
+    <p data-lang="fr"><span class="dot"></span>Projet amateur entre amis · Minecraft 1.21.1 · Fabric · Cobblemon · serveur en mode en ligne (online-mode).</p>
+    <p data-lang="en"><span class="dot"></span>Hobby project among friends · Minecraft 1.21.1 · Fabric · Cobblemon · online-mode server.</p>
+  </div>
+
+  <footer>
+    <p data-lang="fr">Contact : <a href="https://github.com/eeverywhereedv">github.com/eeverywhereedv</a></p>
+    <p data-lang="en">Contact: <a href="https://github.com/eeverywhereedv">github.com/eeverywhereedv</a></p>
+    <p data-lang="fr">PokEffy n'est pas affilié à Mojang, Microsoft, Nintendo, Game Freak ou The Pokémon Company. Minecraft est une marque de Mojang AB. Cobblemon est un projet communautaire indépendant.</p>
+    <p data-lang="en">PokEffy is not affiliated with Mojang, Microsoft, Nintendo, Game Freak or The Pokémon Company. Minecraft is a trademark of Mojang AB. Cobblemon is an independent community project.</p>
+  </footer>
+</div>
+<script>
+  const set = (l) => { document.documentElement.lang = l; document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.set === l)); };
+  document.querySelectorAll('.lang button').forEach(b => b.onclick = () => set(b.dataset.set));
+  if (!navigator.language.toLowerCase().startsWith('fr')) set('en');
+</script>
+</body>
+</html>
